@@ -1,0 +1,136 @@
+.spreadsheet--row-group.collapsed {
+  .collapse-control:first-of-type {
+    @apply -rotate-90
+  }
+}
+
+.spreadsheet--row-group {
+  &.highlight {
+    @apply bg-blue-100
+  }
+
+  .spreadsheet--row:first-child {
+    &.highlight {
+      @apply bg-blue-200
+    }
+  }
+}
+
+.spreadsheet--row > .spreadsheet--cell:first-of-type {
+  @apply ml-3
+}
+
+// .spreadsheet--row > .spreadsheet--cell:last-of-type {
+//   @apply mr-6
+// }
+
+.spreadsheet--row-group .row_group-body .spreadsheet--cell:first-of-type .spreadsheet--cell-display{
+  @apply pl-4
+}
+
+.spreadsheet--row-group .spreadsheet--row-group .spreadsheet--cell:first-of-type .spreadsheet--cell-display{
+  @apply pl-4
+}
+
+.spreadsheet--row-group .spreadsheet--row-group .row_group-body .spreadsheet--cell:first-of-type .spreadsheet--cell-display{
+  @apply pl-6
+}
+
+.spreadsheet--row-group .spreadsheet--row-group .row_group-body .row_group-body .spreadsheet--cell:first-of-type .spreadsheet--cell-display {
+  @apply pl-8
+}
+
+
+.spreadsheet--row {
+  .cell, input {
+    outline-style: auto;
+    outline-color: rgb(234, 95, 204);
+  }
+
+  .row-checkbox {
+    &::part(checked-icon) {
+      @apply bg-gray-500 border-gray-500
+    }
+  }
+}
+
+.spreadsheet--cell {
+  input[readonly]:focus {
+    outline-color: #ddd;
+  }
+
+  &.readonly {
+    @apply .text-gray-600
+  }
+
+  &.error {
+    position: relative;
+  }
+
+  &.modified .spreadsheet--cell-display {
+    @apply font-bold bg-yellow-300
+  }
+
+
+  &.error::before,
+  &.error::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-color: transparent;
+      border-style: solid;
+  }
+
+  &.error::before {
+      border-width: 3px;
+      border-right-color: rgba(205, 22, 22, 0.687);
+      border-top-color: rgb(203, 72, 172);
+  }
+
+  &.error::after {
+      border-radius: 3px;
+      border-width: 5px;
+      border-right-color: rgba(205, 22, 22, 0.687);
+      border-top-color: rgba(205, 22, 22, 0.687);
+  }
+
+}
+
+.spreadsheet--sheet {
+  .highlight {
+    @apply bg-blue-200
+  }
+
+  .highlight-sum {
+    @apply bg-orange-300
+  }
+
+  .negative {
+    @apply text-red-500
+  }
+}
+
+
+sl-icon.collapse-control {
+  @apply text-gray-500;
+  top: 3px;
+  left: 3px;
+}
+
+sl-menu {
+  sl-menu-item {
+    @apply grid grid-flow-col grid-cols-auto
+
+    div:first-child {
+      @apply text-right col-span-8 pr-1
+    }
+    sl-icon {
+      @apply col-span-2
+    }
+  }
+}
+
+mark.current {
+  background-color: orange !important;
+}

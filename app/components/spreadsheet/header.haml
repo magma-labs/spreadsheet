@@ -1,0 +1,33 @@
+.spreadsheet--header.grid.grid-flow-col.grid-cols-auto.gap-0.auto-cols-fr.pl-1.pr-8.relative.bg-gray-500.text-center.sticky.top-0.z-10{data: { controller: "spreadsheet--header", action: "contextmenu->spreadsheet--header#menu"}}
+  - columns.each do |column_id|
+    .spreadsheet--cell.border.p-1.w-full.relative.text-sm{class: "col-span-#{colspan_for(column_id)} #{column_id} #{classnames_for(column_id)}" }
+      = label_for(column_id)
+      %sl-dropdown{ placement: "top-start"}
+
+  %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
+    %sl-icon.text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger" name="three-dots")
+    = context_menu
+
+  %sl-menu#context-menu.hidden.text-xs{data: {target: "spreadsheet--header.contextMenu"}}
+    %sl-menu-label.text-left.text-xs Show/Hide Columns
+    - columns.each do |column_id|
+      - next if locked.include?(column_id)
+      %sl-menu-item{checked: true, data: {id: column_id, action: "click->spreadsheet--sheet#toggleColumn"} }
+        .text-xs
+          =label_for(column_id)
+.spreadsheet--search.grid.grid-flow-col.grid-cols-auto.gap-0.auto-cols-fr.pl-1.pr-8.hidden{ data: { controller: "spreadsheet--search", action: "toggle-search@window->spreadsheet--search#toggleSearch" }}
+  .input.col-span-9.p-2
+    %sl-input.w-full(placeholder="Search" size="small" clearable pill){ data: { target: "spreadsheet--search.input"}}
+      %sl-icon(name="search" slot="prefix")
+      %sl-dropdown(slot="suffix" placement="bottom-end" hoist){ data: { target: "spreadsheet--search.dropdown"}}
+        %sl-button(slot="trigger" caret type="text" size="small"){ data: { target: "spreadsheet--search.trigger"}} Highlight
+        %sl-menu
+          %sl-menu-item{ data: { target: "spreadsheet--search.higlight"}, checked: true} Highlight
+          %sl-menu-item{ data: { target: "spreadsheet--search.filter"}} Filter
+
+  .search-results.text-center.p-3{ data: { target: "spreadsheet--search.results"}}
+    0 found
+  .search-actions.text-right.p-2.flex
+    %sl-icon-button(name="caret-up-fill" label="Previous"){ data: { target: "spreadsheet--search.previous" }, class: "w-1/3"}
+    %sl-icon-button(name="caret-down-fill" label="Next"){ data: { target: "spreadsheet--search.next"}, class: "w-1/3"}
+    %sl-icon-button(name="x-circle-fill" label="Close"){ data: { target: "spreadsheet--search.cancel"}, class: "w-1/3"}

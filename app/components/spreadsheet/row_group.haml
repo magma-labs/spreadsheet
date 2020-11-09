@@ -1,0 +1,6 @@
+.spreadsheet--row-group-container.pb-px.bg-white{class: classnames, draggable: draggable }
+  .spreadsheet--row-group.divide-y.divide-gray-500{data: { controller: "spreadsheet--row-group", action: "mousedown->spreadsheet--row-group#highlight"} }
+    .row_group-header.relative.pb-px.bg-gray-300.font-medium
+      = header
+    .row_group-body.collapse-container.bg-white.font-light(data-target="spreadsheet--row-group.collapseContainer" data-controller="spreadsheet--sortable")
+      = body
