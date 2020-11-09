@@ -1,6 +1,6 @@
 module Spreadsheet
   class Engine < ::Rails::Engine
-    initializer "webpacker.proxy" do |app|
+    initializer "spreadsheet.webpacker.proxy" do |app|
         insert_middleware = begin
                             Spreadsheet.webpacker.config.dev_server.present?
                           rescue
@@ -14,5 +14,13 @@ module Spreadsheet
           webpacker: Spreadsheet.webpacker
         )
       end
+
+    initializer 'spreadsheet.webpacker.middleware' do |app|
+      app.middleware.use(
+        Rack::Static,
+        urls: ["/spreadheet-packs"],
+        root: Spreadsheet::ROOT_PATH.join("public")
+      )
+    end
   end
 end

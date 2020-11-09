@@ -1,4 +1,5 @@
-require "spreadsheet/railtie"
+require "webpacker"
+require "spreadsheet/engine"
 
 module Spreadsheet
   ROOT_PATH = Pathname.new(File.join(__dir__, ".."))

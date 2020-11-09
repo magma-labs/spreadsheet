@@ -6,7 +6,6 @@ ensure
   Webpacker.logger = old_logger
 end
 
-
 namespace :spreadsheet do
   namespace :webpacker do
     desc "Install deps with yarn"

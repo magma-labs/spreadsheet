@@ -3,3 +3,8 @@ log/*.log
 pkg/
 test/dummy
 Gemfile.lock
+tmp
+/public/packs
+/public/packs-test
+/public/spreadsheet-packs
+/public/spreadsheet-packs-test
