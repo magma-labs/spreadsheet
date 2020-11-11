@@ -1,7 +1,6 @@
 import Cleave from 'cleave.js';
 import { Controller } from 'stimulus'
 
-
 export default class extends Controller {
   static targets = ["display", "input"]
 
