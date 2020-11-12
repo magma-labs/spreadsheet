@@ -18,10 +18,10 @@ export default {
       exclude: 'node_modules/**'
     }),
     terser(),
-		css(),
-		scss(),
-		commonjs({
-			exclude: ['node_modules/marked/**']
-		})
+    css(),
+    scss(),
+    commonjs({
+      exclude: ['node_modules/marked/**']
+    })
   ]  
 }
