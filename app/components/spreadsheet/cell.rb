@@ -73,6 +73,6 @@ class Spreadsheet::Cell < ViewComponent::Base
   end
 
   def row
-    RequestStore.store[:row]
+    RequestStore.store[:row] || {}
   end
 end

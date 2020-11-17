@@ -1,5 +1,10 @@
+require "rails"
+require "view_component"
 require "spreadsheet/engine"
 require "spreadsheet/configuration"
+require "request_store"
+require "css-class-string"
+require "haml"
 
 module Spreadsheet
   class << self

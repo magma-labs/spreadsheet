@@ -1,3 +1,5 @@
+require_relative "./row"
+
 module Spreadsheet
   class Header < Row
     attr_reader :columns
