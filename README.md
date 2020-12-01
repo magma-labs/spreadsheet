@@ -21,6 +21,12 @@ $ gem install spreadsheet
 ## Usage
 How to use my plugin.
 
+## Development
+
+### Setup project locally
+In development, when editing js files you will need to [link your local repository](https://classic.yarnpkg.com/en/docs/cli/link/)
+and run [webpack-dev-server script from `webpacker`](https://github.com/rails/webpacker#development) in your rails application
+
 ## Contributing
 Contribution directions go here.
 
