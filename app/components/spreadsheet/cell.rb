@@ -26,8 +26,18 @@ class Spreadsheet::Cell < ViewComponent::Base
       value: value,
       nesting_level: nesting_level,
       controller: "spreadsheet--cell",
-      action: "keyup->spreadsheet--cell#navigate mousedown->spreadsheet--row#highlight focus->spreadsheet--cell#focus",
+      action: "keyup->spreadsheet--cell#navigate mousedown->spreadsheet--row#highlight",
       error: error }
+  end
+
+  def popover_data
+    return unless error
+
+    {
+      controller: "popover",
+      action: "mouseover->popover#mouseOver mouseout->popover#mouseOut",
+      popover: { "translate-y": "-128%", "translate-x": "-50%"}
+    }
   end
 
 

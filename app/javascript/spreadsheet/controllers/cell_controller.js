@@ -11,24 +11,8 @@ export default class extends Controller {
         numeralThousandsGroupStyle: 'thousand'
       })
     }
-
-    this.element.addEventListener("blur", this.blur.bind(this))
   }
 
-  get tooltip() {
-    return this.displayTarget.querySelector('sl-tooltip');
-  }
-
-  focus() {
-    if(this.element.dataset.error) {
-      this.tooltip.open = true
-    }
-    document.dispatchEvent(new Event("spreadsheet:cell-focus"))
-  }
-
-  blur() {
-    this.tooltip.open = false
-  }
   // -- keyboard events
 
   navigate(event) {

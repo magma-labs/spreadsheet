@@ -1,7 +1,11 @@
 .spreadsheet--cell.border.border-dotted.border-gray-300.p-0.text-sm.p-1{class: classnames, tabindex: 0, data: data, draggable: true }
   .spreadsheet--cell-display.p-1.w-full.mt-auto{class: numeric_class, data: { target: "spreadsheet--cell.display", action: "dblclick->spreadsheet--cell#showInput"}}
-    %sl-tooltip{ content: error, trigger: "manual" }
-      .inline-block.searchable
+    .inline-block{ data: popover_data }
+      - if error
+        .content.hidden.absolute.max-w-xs.bg-red-500.rounded.p-2.text-white{ data: { target: "popover.content"}}
+          = error
+
+      .searchable
         = content
       - if expander
         %sl-icon.collapse-control.inline-block.transform.transition-transform.duration-200.ease-in.cursor-pointer(name="caret-down-fill"){ data: { action: "click->spreadsheet--row-group#collapse" }}
