@@ -14,8 +14,8 @@ class Spreadsheet::Row < ViewComponent::Base
     RequestStore.store[:row] = self
   end
 
-  def classnames
-    CssClassString::Helper.new(id, @opts[:heading_css], draggable: @opts[:draggable]).to_s
+  def component_classnames
+    CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable]).to_s
   end
 
   def display_cell?(id)

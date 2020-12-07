@@ -11,10 +11,11 @@ class Spreadsheet::Cell < ViewComponent::Base
 
     # let row's options serve as defaults for this cell
     @opts =  row.opts.merge(opts)
+    @opts[:classnames] = @opts[:classnames].concat(" #{row.opts[:classnames]}") if row.opts[:classnames] && row.opts[:classnames] != @opts[:classnames]
   end
 
-  def classnames
-    CssClassString::Helper.new(id, "col-span-#{colspan}", numeric_class, readonly: readonly, money: opts[:money], error: error).to_s
+  def component_classnames
+    CssClassString::Helper.new(id, "col-span-#{colspan}", numeric_class, @opts[:classnames], readonly: readonly, money: opts[:money], error: error).to_s
   end
 
   def content
