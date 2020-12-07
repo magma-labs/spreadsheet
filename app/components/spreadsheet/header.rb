@@ -16,8 +16,27 @@ module Spreadsheet
       @labels = labels
     end
 
+    def component_classnames
+      grid = @classnames[:grid] || default_grid_classnames
+      padding = @classnames[:padding] || default_padding_classnames
+      "#{grid} #{padding} relative bg-gray-500 text-center sticky top-0 z-10"
+    end
+
+    def default_grid_classnames
+      "grid grid-flow-col grid-cols-auto gap-0 auto-cols-fr"
+    end
+
+    def default_padding_classnames
+      "pl-1 pr-8"
+    end
+
+    def default_cell_grid_classnames(id)
+      "col-span-#{colspan_for(id)}"
+    end
+
     def classnames_for(id)
-      [@classnames[:all], @classnames[id]].compact.join(" ")
+      grid = @classnames[:cell_grid] || default_cell_grid_classnames(id)
+      [@classnames[:all], @classnames[id], "#{grid} #{id}"].compact.join(" ")
     end
 
     def colspan_for(id)

@@ -1,6 +1,6 @@
-.spreadsheet--header.grid.grid-flow-col.grid-cols-auto.gap-0.auto-cols-fr.pl-1.pr-8.relative.bg-gray-500.text-center.sticky.top-0.z-10{data: { controller: "spreadsheet--header", action: "contextmenu->spreadsheet--header#menu"}}
+.spreadsheet--header{class: component_classnames, data: { controller: "spreadsheet--header", action: "contextmenu->spreadsheet--header#menu"}}
   - columns.each do |column_id|
-    .spreadsheet--cell.border.p-1.w-full.relative.text-sm{class: "col-span-#{colspan_for(column_id)} #{column_id} #{classnames_for(column_id)}" }
+    .spreadsheet--cell.border.p-1.text-sm{class: classnames_for(column_id) }
       = label_for(column_id)
       %sl-dropdown{ placement: "top-start"}
 
