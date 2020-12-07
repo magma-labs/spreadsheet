@@ -1,7 +1,8 @@
 class Spreadsheet::Sheet < ViewComponent::Base
 
-  def initialize()
+  def initialize(opts = {})
     RequestStore.store[:row_parent] = self
+    @classnames = opts[:classnames] || {}
   end
 
   def level
@@ -13,6 +14,10 @@ class Spreadsheet::Sheet < ViewComponent::Base
       controller: "spreadsheet--sheet",
       action: component_actions
     }
+  end
+
+  def component_classnames
+    @classnames
   end
 
   private
