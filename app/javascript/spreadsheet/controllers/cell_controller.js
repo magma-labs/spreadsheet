@@ -12,7 +12,7 @@ export default class extends Controller {
       })
     }
 
-    this.element.addEventListener("blur", this.blur.bind(this))
+    // this.element.addEventListener("blur", this.blur.bind(this))
   }
 
   get tooltip() {
@@ -20,14 +20,14 @@ export default class extends Controller {
   }
 
   focus() {
-    if(this.element.dataset.error) {
-      this.tooltip.open = true
-    }
-    document.dispatchEvent(new Event("spreadsheet:cell-focus"))
+    // if(this.element.dataset.error) {
+    //   this.tooltip.open = true
+    // }
+    // document.dispatchEvent(new Event("spreadsheet:cell-focus"))
   }
 
   blur() {
-    this.tooltip.open = false
+    // this.tooltip.open = false
   }
   // -- keyboard events
 
