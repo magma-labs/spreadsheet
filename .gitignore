@@ -10,3 +10,4 @@ tmp
 /public/spreadsheet-packs-test
 dist
 node_modules
+yarn.lock
