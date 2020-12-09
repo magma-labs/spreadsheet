@@ -31,6 +31,12 @@ class Spreadsheet::Cell < ViewComponent::Base
       error: error }
   end
 
+  def input_data
+    {
+      target: "spreadsheet--cell.input",
+      action: "change->spreadsheet--cell#change blur->spreadsheet--cell#hideInput"
+    }
+  end
 
   def disabled
     opts[:disabled]

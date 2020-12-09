@@ -7,5 +7,4 @@
         %sl-icon.collapse-control.inline-block.transform.transition-transform.duration-200.ease-in.cursor-pointer(name="caret-down-fill"){ data: { action: "click->spreadsheet--row-group#collapse" }}
 
   - unless readonly
-    %input.bg-white.text-black.w-full.p-1.hidden{ type: "text", value: value, class: numeric_class, disabled: disabled, readonly: readonly,
-      data: { target: "spreadsheet--cell.input", action: "change->spreadsheet--cell#change blur->spreadsheet--cell#hideInput"}}
+    %input.bg-white.text-black.w-full.p-1.hidden{ type: "text", value: value, class: numeric_class, disabled: disabled, readonly: readonly, data: input_data }
