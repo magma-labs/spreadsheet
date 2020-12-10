@@ -3,7 +3,8 @@
     .inline-block.searchable
       = content
     - if expander
-      %sl-icon.collapse-control.inline-block.transform.transition-transform.duration-200.ease-in.cursor-pointer(name="caret-down-fill"){ data: { action: "click->spreadsheet--row-group#collapse" }}
+      .collapse-control.inline-block.transform.transition-transform.duration-200.ease-in.cursor-pointer{ data: { action: "click->spreadsheet--row-group#collapse" }}
+        = octicon "triangle-down"
 
   - unless readonly
-    %input.bg-white.text-black.w-full.p-1.hidden{ type: "text", value: value, class: numeric_class, disabled: disabled, readonly: readonly, data: input_data }
+    %input.bg-white.text-black.w-full.p-1.hidden{id: random_id, type: "text", value: value, class: numeric_class, disabled: disabled, readonly: readonly, data: input_data }

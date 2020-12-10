@@ -1,3 +1,5 @@
+import '@primer/octicons/build/build.css';
+
 import CellController from './controllers/cell_controller.js';
 import HeaderController from './controllers/header_controller.js';
 import RowController from './controllers/row_controller.js';

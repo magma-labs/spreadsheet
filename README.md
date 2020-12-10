@@ -27,6 +27,10 @@ How to use my plugin.
 In development, when editing js files you will need to [link your local repository](https://classic.yarnpkg.com/en/docs/cli/link/)
 and run [webpack-dev-server script from `webpacker`](https://github.com/rails/webpacker#development) in your rails application
 
+In brief, the process is 2 steps:
+* Run `yarn link` in this directory.
+* Run `yarn link "spreadsheet"` in the project that has the dependency.
+
 ## Contributing
 Contribution directions go here.
 

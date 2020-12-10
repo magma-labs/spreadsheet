@@ -10,6 +10,15 @@ export default class extends Controller {
 
     document.addEventListener("spreadsheet:cell-focus", this.clearSum.bind(this))
 
+    window.addEventListener("cable-ready:after-morph", function(event) {
+      const tags = ['sl-dropdown', 'sl-menu', 'sl-menu-item']
+      tags.forEach(tag => {
+        document.querySelectorAll(tag).forEach(el =>{
+          el.classList.add('hydrated')
+        })
+      })
+    })
+
   }
 
   startSum(event) {

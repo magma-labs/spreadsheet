@@ -5,7 +5,9 @@
       %sl-dropdown{ placement: "top-start"}
 
   %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
-    %sl-icon.text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger" name="three-dots")
+    .text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger")
+      = octicon "kebab-horizontal"
+
     = context_menu
 
   %sl-menu#context-menu.hidden.text-xs{data: {target: "spreadsheet--header.contextMenu"}}

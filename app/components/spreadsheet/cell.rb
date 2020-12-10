@@ -1,4 +1,4 @@
-class Spreadsheet::Cell < ViewComponent::Base
+class Spreadsheet::Cell < Spreadsheet::BaseComponent
   attr_reader :id
   attr_reader :value
   attr_reader :colspan

@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "main": "dist/spreadsheet.js",
   "dependencies": {
+    "@primer/octicons": "^11.2.0",
     "@rails/actioncable": "^6.0.0",
-    "cable_ready": "^4.4.0-pre2",
+    "cable_ready": "^4.4.0-pre3",
     "cleave.js": "^1.6.0",
     "hotkeys-js": "^3.8.1",
     "mark.js": "^8.11.1",
     "sortablejs": "^1.12.0",
     "stimulus": "^1.1.1",
-    "stimulus_reflex": "^3.3.0",
+    "stimulus_reflex": "^3.4.0.pre8",
     "tailwindcss": "^1.9.5"
   },
   "devDependencies": {

@@ -5,6 +5,7 @@ require "spreadsheet/configuration"
 require "request_store"
 require "css-class-string"
 require "haml"
+require "octicons_helper"
 
 module Spreadsheet
   class << self

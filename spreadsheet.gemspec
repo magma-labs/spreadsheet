@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "css-class-string"
   spec.add_dependency "haml"
+  spec.add_dependency "octicons_helper"
   spec.add_dependency "rails"
   spec.add_dependency "request_store"
   spec.add_dependency "stimulus_reflex"

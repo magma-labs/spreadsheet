@@ -1,6 +1,12 @@
 .spreadsheet--row-group.collapsed {
-  .collapse-control:first-of-type {
+  .collapse-control {
     @apply -rotate-90
+  }
+}
+
+.collapse-control {
+  svg {
+    fill: #a0aec0;
   }
 }
 
@@ -24,15 +30,15 @@
 //   @apply mr-6
 // }
 
-.spreadsheet--row-group .row_group-body .spreadsheet--cell:first-of-type .spreadsheet--cell-display{
+.spreadsheet--row-group .row_group-body .spreadsheet--cell:first-of-type .spreadsheet--cell-display {
   @apply pl-4
 }
 
-.spreadsheet--row-group .spreadsheet--row-group .spreadsheet--cell:first-of-type .spreadsheet--cell-display{
+.spreadsheet--row-group .spreadsheet--row-group .spreadsheet--cell:first-of-type .spreadsheet--cell-display {
   @apply pl-4
 }
 
-.spreadsheet--row-group .spreadsheet--row-group .row_group-body .spreadsheet--cell:first-of-type .spreadsheet--cell-display{
+.spreadsheet--row-group .spreadsheet--row-group .row_group-body .spreadsheet--cell:first-of-type .spreadsheet--cell-display {
   @apply pl-6
 }
 
@@ -42,7 +48,7 @@
 
 
 .spreadsheet--row {
-  .cell, input {
+  .cell, input[type="text"] {
     outline-style: auto;
     outline-color: rgb(234, 95, 204);
   }
@@ -112,11 +118,7 @@
 }
 
 
-sl-icon.collapse-control {
-  @apply text-gray-500;
-  top: 3px;
-  left: 3px;
-}
+
 
 sl-menu {
   sl-menu-item {
