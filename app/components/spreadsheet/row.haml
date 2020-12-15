@@ -1,20 +1,23 @@
-.spreadsheet--row.grid.grid-flow-col.grid-cols-auto.relative.gap-0.auto-cols-fr.pl-3.pr-8{class: component_classnames,
+.spreadsheet--row.grid.grid-flow-col.grid-cols-auto.relative.gap-0.auto-cols-fr.pr-8{class: component_classnames,
   data: { controller: "spreadsheet--row", action: "mousedown->spreadsheet--row#highlight",  nesting_level: nesting_level }, draggable: draggable }
   = content
-  .absolute.p-2.row-checkbox.hidden
-    %sl-checkbox(name="grip-horizontal"){ data: { target: "spreadsheet--row.checkbox", action: "click->spreadsheet--row#selectRow"}}
+  - if selectable
+    .absolute.p-2.row-checkbox.hidden
+      %sl-checkbox(name="grip-horizontal"){ data: { target: "spreadsheet--row.checkbox", action: "click->spreadsheet--row#selectRow"}}
   - if draghandle
     .absolute.p-2.text-gray-500.draghandle.cursor-move
       = octicon "grabber"
 
-  %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
-    .absolute.p-2.text-gray-500.inset-y-0.right-0.row_actionmenu.cursor-pointer(slot="trigger")
-      = octicon "kebab-horizontal"
-    %sl-menu.text-xs
-      %sl-menu-item
-        .grid.grid-flow-col.grid-cols-auto{ data: { action: "click->spreadsheet--row#toggleSelectionMode" }}
-          .text-xs.text-right.col-span-8.mr-2 Select
-          .text-xs.col-span-1.p-1
-            = octicon "pencil"
+  - if show_dropdown?
+    %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
+      .absolute.p-2.text-gray-500.inset-y-0.right-0.row_actionmenu.cursor-pointer(slot="trigger")
+        = octicon "kebab-horizontal"
+      %sl-menu.text-xs
+        - if selectable
+          %sl-menu-item
+            .grid.grid-flow-col.grid-cols-auto{ data: { action: "click->spreadsheet--row#toggleSelectionMode" }}
+              .text-xs.text-right.col-span-8.mr-2 Select
+              .text-xs.col-span-1.p-1
+                = octicon "pencil"
 
-      = actions_menu
+        = actions_menu

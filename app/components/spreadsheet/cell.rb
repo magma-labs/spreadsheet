@@ -42,6 +42,10 @@ class Spreadsheet::Cell < Spreadsheet::BaseComponent
     opts[:disabled]
   end
 
+  def dragsum
+    opts[:dragsum]
+  end
+
   def error
     opts[:error]
   end

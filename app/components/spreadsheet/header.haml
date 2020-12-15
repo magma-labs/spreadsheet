@@ -4,11 +4,11 @@
       = label_for(column_id)
       %sl-dropdown{ placement: "top-start"}
 
-  %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
-    .text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger")
-      = octicon "kebab-horizontal"
-
-    = context_menu
+  - if show_dropdown?
+    %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
+      .text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger")
+        = octicon "kebab-horizontal"
+      = context_menu
 
   %sl-menu#context-menu.hidden.text-xs{data: {target: "spreadsheet--header.contextMenu"}}
     %sl-menu-label.text-left.text-xs Show/Hide Columns

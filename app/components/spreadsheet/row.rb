@@ -15,7 +15,7 @@ class Spreadsheet::Row < ViewComponent::Base
   end
 
   def component_classnames
-    CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable]).to_s
+    CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable], "pl-3" => @opts[:selectable]).to_s
   end
 
   def display_cell?(id)
@@ -27,6 +27,10 @@ class Spreadsheet::Row < ViewComponent::Base
     opts[:draghandle]
   end
 
+  def selectable
+    opts[:selectable]
+  end
+
   def draggable
     opts[:draggable]
   end
@@ -35,4 +39,7 @@ class Spreadsheet::Row < ViewComponent::Base
     opts[:nesting_level] || 0
   end
 
+  def show_dropdown?
+    selectable || actions_menu.present?
+  end
 end

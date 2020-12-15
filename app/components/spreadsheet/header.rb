@@ -27,7 +27,7 @@ module Spreadsheet
     end
 
     def default_padding_classnames
-      "pl-1 pr-8"
+      CssClassString::Helper.new("pl-1", "pr-8" => show_dropdown?)
     end
 
     def default_cell_grid_classnames(id)
@@ -45,6 +45,10 @@ module Spreadsheet
 
     def label_for(id)
       @labels[id] || id.to_s.titleize
+    end
+
+    def show_dropdown?
+      context_menu.present?
     end
   end
 end

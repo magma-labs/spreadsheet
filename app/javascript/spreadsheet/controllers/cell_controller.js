@@ -23,7 +23,7 @@ export default class extends Controller {
     // if(this.element.dataset.error) {
     //   this.tooltip.open = true
     // }
-    // document.dispatchEvent(new Event("spreadsheet:cell-focus"))
+    document.dispatchEvent(new Event("spreadsheet:cell-focus"))
   }
 
   blur() {
@@ -77,6 +77,8 @@ export default class extends Controller {
   }
 
   restorePreviousValue() {
+    if (!this.inputTarget.dataset.previousValue) return
+
     this.inputTarget.value = this.inputTarget.dataset.previousValue
     this.change()
   }
