@@ -15,7 +15,7 @@ class Spreadsheet::Row < ViewComponent::Base
   end
 
   def component_classnames
-    CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable], "pl-3" => @opts[:selectable]).to_s
+    CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable], "pl-3" => selectable, "pr-8" => show_dropdown?).to_s
   end
 
   def display_cell?(id)
