@@ -5,6 +5,12 @@
     - if expander
       .collapse-control.inline-block.transform.transition-transform.duration-200.ease-in.cursor-pointer{ data: { action: "click->spreadsheet--row-group#collapse" }}
         = octicon "triangle-down"
+    - if actions_menu
+      %sl-dropdown.cell_actionmenu
+        .p-1.text-gray-500.cursor-pointer(slot="trigger")
+          %sl-icon(name=actions_menu_icon)
+        %sl-menu.text-xs
+          = actions_menu
 
   - unless readonly
     %input.bg-white.text-black.w-full.p-1.hidden{id: random_id, type: "text", value: value, class: numeric_class, disabled: disabled, readonly: readonly, data: input_data }

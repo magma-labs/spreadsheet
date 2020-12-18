@@ -4,6 +4,8 @@ class Spreadsheet::Cell < Spreadsheet::BaseComponent
   attr_reader :colspan
   attr_reader :opts
 
+  with_content_areas :actions_menu
+
   def initialize(id:, value: "&nbsp;".html_safe, colspan: 1, **opts)
     @id = id
     @value = value
@@ -70,6 +72,14 @@ class Spreadsheet::Cell < Spreadsheet::BaseComponent
 
   def render?
     row.display_cell?(id)
+  end
+
+  def actions_menu_options
+    opts[:actions_menu_options] || {}
+  end
+
+  def actions_menu_icon
+    actions_menu_options[:icon] || "three-dots"
   end
 
   private
