@@ -10,6 +10,6 @@ class CellTest < ViewComponent::TestCase
   def test_expander
     render_inline(::Spreadsheet::Cell.new(id: 'cell-test', expander: true))
 
-    assert_selector("sl-icon.collapse-control")
+    assert_selector(".collapse-control")
   end
 end

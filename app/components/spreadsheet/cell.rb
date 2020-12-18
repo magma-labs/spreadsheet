@@ -94,6 +94,6 @@ class Spreadsheet::Cell < Spreadsheet::BaseComponent
   end
 
   def row
-    RequestStore.store[:row] || {}
+    RequestStore.store[:row] || Spreadsheet::Row.new(id: "parent-#{@id}")
   end
 end
