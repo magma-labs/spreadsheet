@@ -3,6 +3,7 @@ class Spreadsheet::Sheet < ViewComponent::Base
   def initialize(opts = {})
     RequestStore.store[:row_parent] = self
     @classnames = opts[:classnames] || {}
+    @opts = opts
   end
 
   def level
@@ -11,9 +12,13 @@ class Spreadsheet::Sheet < ViewComponent::Base
 
   def data
     {
-      controller: "spreadsheet--sheet",
+      controller: component_controller,
       action: component_actions
     }
+  end
+
+  def component_controller
+    @opts[:controller] || "spreadsheet--sheet"
   end
 
   def component_classnames
@@ -24,8 +29,8 @@ class Spreadsheet::Sheet < ViewComponent::Base
 
   def component_actions
     [
-      "dragstart@document->spreadsheet--sheet#startSum",
-      "dragenter@document->spreadsheet--sheet#calculateSum"
+      "dragstart@document->#{component_controller}#startSum",
+      "dragenter@document->#{component_controller}#calculateSum"
     ].join(" ")
   end
 end
