@@ -1,5 +1,5 @@
 {
-  "name": "spreadsheet",
+  "name": "@magmalabs/spreadsheet",
   "version": "0.1.0",
   "main": "dist/spreadsheet.js",
   "dependencies": {
@@ -45,6 +45,7 @@
   },
   "scripts": {
     "build": "rollup --config",
-    "start": "npm run build -- --watch"
+    "start": "npm run build -- --watch",
+    "prepublish": "npm run build"
   }
 }
