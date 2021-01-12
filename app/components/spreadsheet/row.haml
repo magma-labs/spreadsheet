@@ -1,9 +1,9 @@
 .spreadsheet--row.grid.grid-flow-col.grid-cols-auto.relative.gap-0.auto-cols-fr{class: component_classnames,
-  data: { controller: "spreadsheet--row", action: "mousedown->spreadsheet--row#highlight",  nesting_level: nesting_level }, draggable: draggable }
+  data: { controller: component_controller, action: "mousedown->#{component_controller}#highlight",  nesting_level: nesting_level }, draggable: draggable }
   = content
   - if selectable
     .absolute.p-2.row-checkbox.hidden
-      %sl-checkbox(name="grip-horizontal"){ data: { target: "spreadsheet--row.checkbox", action: "click->spreadsheet--row#selectRow"}}
+      %sl-checkbox(name="grip-horizontal"){ data: { target: "#{component_controller}.checkbox", action: "click->#{component_controller}#selectRow"}}
   - if draghandle
     .absolute.p-2.text-gray-500.draghandle.cursor-move
       = octicon "grabber"
@@ -15,7 +15,7 @@
       %sl-menu.text-xs
         - if selectable
           %sl-menu-item
-            .grid.grid-flow-col.grid-cols-auto{ data: { action: "click->spreadsheet--row#toggleSelectionMode" }}
+            .grid.grid-flow-col.grid-cols-auto{ data: { action: "click->#{component_controller}#toggleSelectionMode" }}
               .text-xs.text-right.col-span-8.mr-2 Select
               .text-xs.col-span-1.p-1
                 = octicon "pencil"

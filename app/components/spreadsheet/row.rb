@@ -1,4 +1,4 @@
-class Spreadsheet::Row < ViewComponent::Base
+class Spreadsheet::Row < Spreadsheet::BaseComponent
   attr_reader :id
   attr_reader :parent
   attr_reader :opts
@@ -41,5 +41,11 @@ class Spreadsheet::Row < ViewComponent::Base
 
   def show_dropdown?
     selectable || actions_menu.present?
+  end
+
+  private
+
+  def default_component_controller
+    "spreadsheet--row"
   end
 end
