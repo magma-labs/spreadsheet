@@ -43,6 +43,16 @@ class Spreadsheet::Row < Spreadsheet::BaseComponent
     selectable || actions_menu.present?
   end
 
+  def data
+    default_data = {
+      controller: component_controller,
+      action: "mousedown->#{component_controller}#highlight",
+      nesting_level: nesting_level
+    }
+    default_data.merge!(opts[:extra_data]) if opts[:extra_data]
+    default_data
+  end
+
   private
 
   def default_component_controller
