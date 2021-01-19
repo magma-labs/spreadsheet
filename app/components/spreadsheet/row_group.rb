@@ -1,4 +1,4 @@
-class Spreadsheet::RowGroup < ViewComponent::Base
+class Spreadsheet::RowGroup < Spreadsheet::BaseComponent
   attr_reader :id
   attr_reader :opts
 
@@ -13,7 +13,7 @@ class Spreadsheet::RowGroup < ViewComponent::Base
   end
 
   def classnames
-    CssClassString::Helper.new(id, draggable: @opts[:draggable], collapsed: @opts[:collapsed]).to_s
+    CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable], collapsed: @opts[:collapsed]).to_s
   end
 
   def draggable
@@ -24,4 +24,9 @@ class Spreadsheet::RowGroup < ViewComponent::Base
     @row_parent.level + 1
   end
 
+  private
+
+  def default_component_controller
+    "spreadsheet--row-group"
+  end
 end
