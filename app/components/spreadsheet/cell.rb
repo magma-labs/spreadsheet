@@ -25,18 +25,20 @@ class Spreadsheet::Cell < Spreadsheet::BaseComponent
   end
 
   def data
-    { type: id,
+    default_data = { type: id,
       value: value,
       nesting_level: nesting_level,
-      controller: "spreadsheet--cell",
-      action: "keyup->spreadsheet--cell#navigate mousedown->spreadsheet--row#highlight focus->spreadsheet--cell#focus",
+      controller: component_controller,
+      action: "keyup->#{component_controller}#navigate mousedown->spreadsheet--row#highlight focus->#{component_controller}#focus",
       error: error }
+    default_data.merge!(opts[:extra_data]) if opts[:extra_data]
+    default_data
   end
 
   def input_data
     {
-      target: "spreadsheet--cell.input",
-      action: "change->spreadsheet--cell#change blur->spreadsheet--cell#hideInput"
+      target: "#{component_controller}.input",
+      action: "change->#{component_controller}#change blur->#{component_controller}#hideInput"
     }
   end
 
@@ -82,6 +84,16 @@ class Spreadsheet::Cell < Spreadsheet::BaseComponent
     actions_menu_options[:icon] || "three-dots"
   end
 
+  def component_controller
+    # We use `cell_controller` option here instead `controller` like in other components
+    # to avoid conflicts, since cell receive all row options too
+    @opts[:cell_controller] || default_component_controller
+  end
+
+  def parent_component_controller
+    @opts[:parent_controller] || default_parent_component_controller
+  end
+
   private
 
   def numeric_value
@@ -95,5 +107,13 @@ class Spreadsheet::Cell < Spreadsheet::BaseComponent
 
   def row
     RequestStore.store[:row] || Spreadsheet::Row.new(id: "parent-#{@id}")
+  end
+
+  def default_component_controller
+    "spreadsheet--cell"
+  end
+
+  def default_parent_component_controller
+    "spreadsheet--row-group"
   end
 end
