@@ -1,9 +1,18 @@
-class Spreadsheet::BaseComponent < ViewComponent::Base
-  def random_id
-    "random_#{(rand * 1000000000000).to_i}"
-  end
+# frozen_string_literal: true
 
-  def component_controller
-    @opts[:controller] || default_component_controller
+module Spreadsheet
+  # a base component to define common behaviour for Spreadsheet components
+  class BaseComponent < ViewComponent::Base
+    def initialize(**opts)
+      @opts = opts
+    end
+
+    def random_id
+      "random_#{(rand * 1_000_000_000_000).to_i}"
+    end
+
+    def component_controller
+      @opts[:controller] || default_component_controller
+    end
   end
 end

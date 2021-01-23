@@ -1,32 +1,37 @@
-class Spreadsheet::RowGroup < Spreadsheet::BaseComponent
-  attr_reader :id
-  attr_reader :opts
+# frozen_string_literal: true
 
-  with_content_areas :header, :body
+module Spreadsheet
+  # a wrapper component for spreadsheet rows
+  class RowGroup < Spreadsheet::BaseComponent
+    attr_reader :id, :opts
 
-  def initialize(id:, **opts)
-    @id = id
-    @opts = opts
-    @level =
-    @row_parent = RequestStore.store[:row_parent]
-    RequestStore.store[:row_parent] = self
-  end
+    with_content_areas :header, :body
 
-  def classnames
-    CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable], collapsed: @opts[:collapsed]).to_s
-  end
+    def initialize(id:, **opts)
+      @id = id
+      @opts = opts
+      @level =
+        @row_parent = RequestStore.store[:row_parent]
+      RequestStore.store[:row_parent] = self
+    end
 
-  def draggable
-    opts[:draggable]
-  end
+    def classnames
+      CssClassString::Helper.new(id, @opts[:classnames], draggable: @opts[:draggable],
+                                                         collapsed: @opts[:collapsed]).to_s
+    end
 
-  def level
-    @row_parent.level + 1
-  end
+    def draggable
+      opts[:draggable]
+    end
 
-  private
+    def level
+      @row_parent.level + 1
+    end
 
-  def default_component_controller
-    "spreadsheet--row-group"
+    private
+
+    def default_component_controller
+      'spreadsheet--row-group'
+    end
   end
 end

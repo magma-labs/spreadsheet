@@ -1,12 +1,15 @@
-require "rails"
-require "view_component"
-require "spreadsheet/engine"
-require "spreadsheet/configuration"
-require "request_store"
-require "css-class-string"
-require "haml"
-require "octicons_helper"
+# frozen_string_literal: true
 
+require 'rails'
+require 'view_component'
+require 'spreadsheet/engine'
+require 'spreadsheet/configuration'
+require 'request_store'
+require 'css-class-string'
+require 'haml'
+require 'octicons_helper'
+
+# A collection of view_components for an spreadsheet like app
 module Spreadsheet
   class << self
     def config

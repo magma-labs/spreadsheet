@@ -1,36 +1,41 @@
-class Spreadsheet::Sheet < Spreadsheet::BaseComponent
+# frozen_string_literal: true
 
-  def initialize(opts = {})
-    RequestStore.store[:row_parent] = self
-    @classnames = opts[:classnames] || {}
-    @opts = opts
-  end
+module Spreadsheet
+  # Sheet is a wrapper for all Spreadsheet components
+  class Sheet < Spreadsheet::BaseComponent
+    def initialize(**opts)
+      super
 
-  def level
-    0
-  end
+      RequestStore.store[:row_parent] = self
+      @classnames = opts[:classnames] || {}
+    end
 
-  def data
-    {
-      controller: component_controller,
-      action: component_actions
-    }
-  end
+    def level
+      0
+    end
 
-  def component_classnames
-    @classnames
-  end
+    def data
+      {
+        controller: component_controller,
+        action: component_actions
+      }
+    end
 
-  private
+    def component_classnames
+      @classnames
+    end
 
-  def component_actions
-    [
-      "dragstart@document->#{component_controller}#startSum",
-      "dragenter@document->#{component_controller}#calculateSum"
-    ].join(" ")
-  end
+    private
 
-  def default_component_controller
-    "spreadsheet--sheet"
+    def component_actions
+      [
+        "dragstart@document->#{component_controller}#startSum",
+        "dragenter@document->#{component_controller}#calculateSum"
+      ].join(' ')
+    end
+
+    def default_component_controller
+      'spreadsheet--sheet'
+    end
   end
 end

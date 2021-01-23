@@ -1,9 +1,8 @@
-module Spreadsheet
-  class Search < BaseComponent
-    def initialize(**opts)
-      @opts = opts
-    end
+# frozen_string_literal: true
 
+module Spreadsheet
+  # A Search view_component
+  class Search < BaseComponent
     private
 
     def default_component_controller

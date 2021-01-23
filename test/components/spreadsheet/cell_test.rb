@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class CellTest < ViewComponent::TestCase
   def test_render_component
@@ -10,7 +12,7 @@ class CellTest < ViewComponent::TestCase
   def test_expander
     render_inline(::Spreadsheet::Cell.new(id: 'cell-test', expander: true))
 
-    assert_selector(".collapse-control")
+    assert_selector('.collapse-control')
   end
 
   def test_renders_actions_menu

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 begin
   require 'bundler/setup'
 rescue LoadError
@@ -7,6 +9,7 @@ end
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'rails/generators/rails/app/app_generator'
+require 'rubocop/rake_task'
 require 'fileutils'
 
 desc 'Generates a dummy app for testing'
@@ -15,8 +18,8 @@ task :test_app do
 
   FileUtils.remove_dir(dummy_path) unless Dir[dummy_path].empty?
 
-  puts "Generating dummy Rails application..."
-  opts = [dummy_path] +  %W[-B --skip-gemfile -q -T -G --skip-keeps --skip-listen
+  puts 'Generating dummy Rails application...'
+  opts = [dummy_path] +  %w[-B --skip-gemfile -q -T -G --skip-keeps --skip-listen
                             -P --skip-webpack-install --skip-spring --skip-bootsnap]
   Rails::Generators::AppGenerator.start opts
 end
@@ -27,4 +30,6 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
-task default: :test
+RuboCop::RakeTask.new
+
+task default: %i[test rubocop]

@@ -1,0 +1,9 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  Exclude:
+    - 'test/dummy/**/*'
+    - 'node_modules/**/*'
+  NewCops: enable
+
+Lint/MissingSuper:
+  Enabled: false

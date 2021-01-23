@@ -1,19 +1,21 @@
-require_relative "./row"
+# frozen_string_literal: true
+
+require_relative './row'
 
 module Spreadsheet
+  # Header is a special Row component use it for heading in your sheet
   class Header < Row
-    attr_reader :columns
-    attr_reader :locked
+    attr_reader :columns, :locked
 
     with_content_areas :context_menu
 
-    def initialize(id:, columns:, labels: {}, colspans: {}, classnames: {}, locked: {}, **opts)
+    def initialize(id:, columns:, locked: {}, **opts)
       super
       @columns = columns.map(&:to_sym)
-      @colspans = colspans
-      @classnames = classnames
+      @colspans = opts[:colspans] || {}
+      @classnames = opts[:classnames] || {}
       @locked = locked.map(&:to_sym)
-      @labels = labels
+      @labels = opts[:labels] || {}
     end
 
     def component_classnames
@@ -23,11 +25,11 @@ module Spreadsheet
     end
 
     def default_grid_classnames
-      "grid grid-flow-col grid-cols-auto gap-0 auto-cols-fr"
+      'grid grid-flow-col grid-cols-auto gap-0 auto-cols-fr'
     end
 
     def default_padding_classnames
-      CssClassString::Helper.new("pl-1", "pr-8" => show_dropdown?)
+      CssClassString::Helper.new('pl-1', 'pr-8' => show_dropdown?)
     end
 
     def default_cell_grid_classnames(id)
@@ -36,7 +38,7 @@ module Spreadsheet
 
     def classnames_for(id)
       grid = @classnames[:cell_grid] || default_cell_grid_classnames(id)
-      [@classnames[:all], @classnames[id], "#{grid} #{id}"].compact.join(" ")
+      [@classnames[:all], @classnames[id], "#{grid} #{id}"].compact.join(' ')
     end
 
     def colspan_for(id)
