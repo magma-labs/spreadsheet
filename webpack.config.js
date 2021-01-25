@@ -71,21 +71,21 @@ module.exports = {
                       './app/helpers/**/*.rb',
                       './app/javascript/**/*.js',
                       './app/javascript/**/*.vue',
-                      './app/javascript/**/*.jsx',
+                      './app/javascript/**/*.jsx'
                     ],
                     defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || []
                   })
-                ],
-              },
-            },
+                ]
+              }
+            }
           },
           {
             loader: 'sass-loader',
             options: { sourceMap: true }
-          },
-        ],
-      },
-    ],
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new CopyPlugin({

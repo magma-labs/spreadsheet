@@ -1,24 +1,23 @@
+/* global CustomEvent */
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
+  static targets = ['contextMenu']
 
-  static targets = ["contextMenu"]
-
-  connect() {
-    //console.log(this.element, this.targets);
+  connect () {
+    // console.log(this.element, this.targets);
   }
 
-  menu(event) {
-    var dropdown = event.target.querySelector('sl-dropdown')
-    console.log(dropdown);
+  menu (event) {
+    const dropdown = event.target.querySelector('sl-dropdown')
+    console.log(dropdown)
     dropdown.appendChild(this.contextMenuTarget)
     this.contextMenuTarget.classList.remove('hidden')
     dropdown.show()
-    event.preventDefault();
-
+    event.preventDefault()
   }
 
-  search() {
-    window.dispatchEvent(new CustomEvent("toggle-search"))
+  search () {
+    window.dispatchEvent(new CustomEvent('toggle-search'))
   }
 }
