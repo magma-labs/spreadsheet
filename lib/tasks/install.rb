@@ -11,3 +11,12 @@ inject_into_file file_path, File.open("#{__dir__}/templates/spreadsheet_import.j
 append_to_file file_path.to_s do
   "\n#{File.open("#{__dir__}/templates/spreadsheet_stimulus_register.js").read}"
 end
+
+say "Installing Spreadsheet js package"
+if RAILS_ENV='test'
+  inside File.expand_path('../../.') do
+    run 'yarn link'
+  end
+  run 'yarn link @magmalabs/spreadsheet'
+end
+run 'yarn add @magmalabs/spreadsheet'
