@@ -19,8 +19,9 @@ task :test_app do
   FileUtils.remove_dir(dummy_path) unless Dir[dummy_path].empty?
 
   puts 'Generating dummy Rails application...'
-  opts = [dummy_path] +  %w[-B --skip-gemfile -q -T -G --skip-keeps --skip-listen
-                            -P --skip-webpack-install --skip-spring --skip-bootsnap]
+  opts = [dummy_path] +  %w[-B --skip-gemfile -T -G --skip-keeps --skip-listen
+                            --skip-spring --skip-bootsnap --webpack=stimulus]
+  opts.push('-m', 'lib/spreadsheet/testing_support/dummy.rb')
   Rails::Generators::AppGenerator.start opts
 end
 
