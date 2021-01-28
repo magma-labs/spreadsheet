@@ -8,6 +8,7 @@ ActiveRecord::Migrator.migrations_paths = [File.expand_path('../test/dummy/db/mi
 require 'rails/test_help'
 
 require 'pry'
+require 'selenium-webdriver'
 
 # Filter out the backtrace from minitest while preserving the one from other libraries.
 Minitest.backtrace_filter = Minitest::BacktraceFilter.new
