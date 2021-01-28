@@ -14,4 +14,5 @@ end
 
 after_bundle do
   rake 'spreadsheet:install'
+  rake 'spreadsheet:install:shoelace'
 end
