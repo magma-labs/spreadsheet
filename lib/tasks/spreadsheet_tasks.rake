@@ -18,5 +18,12 @@ namespace :spreadsheet do
     task :shoelace do
       exec install_cmd('shoelace')
     end
+
+    namespace :shoelace do
+      desc 'Setup Shoelace from CDN'
+      task :cdn do
+        exec install_cmd('shoelace_cdn')
+      end
+    end
   end
 end
