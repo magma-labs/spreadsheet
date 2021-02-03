@@ -26,7 +26,7 @@ module Spreadsheet
         "col-span-#{colspan}",
         numeric_class,
         @opts[:classnames],
-        readonly: readonly,
+        readonly: readonly_css,
         money: opts[:money],
         error: error
       ).to_s
@@ -84,6 +84,10 @@ module Spreadsheet
 
     def readonly
       opts[:readonly]
+    end
+
+    def readonly_css
+      opts[:apply_readonly_css].nil? ? readonly : opts[:apply_readonly_css]
     end
 
     def render?
