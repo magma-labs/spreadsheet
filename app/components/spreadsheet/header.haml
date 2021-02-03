@@ -1,8 +1,6 @@
 .spreadsheet--header{class: component_classnames, data: { controller: component_controller, action: "contextmenu->#{component_controller}#menu"}}
-  - columns.each do |column_id|
-    .spreadsheet--cell.border.p-1.text-sm{class: classnames_for(column_id) }
-      = label_for(column_id)
-      %sl-dropdown{ placement: "top-start"}
+  - columns.each do |column|
+    = render column
 
   - if show_dropdown?
     %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
@@ -12,9 +10,9 @@
 
   %sl-menu#context-menu.hidden.text-xs{data: {target: "#{component_controller}.contextMenu"}}
     %sl-menu-label.text-left.text-xs Show/Hide Columns
-    - columns.each do |column_id|
-      - next if locked.include?(column_id)
-      %sl-menu-item{checked: true, data: {id: column_id, action: "click->#{component_controller}#toggleColumn"} }
+    - columns.each do |column|
+      - next if locked.include?(column.id)
+      %sl-menu-item{checked: true, data: {id: column.id, action: "click->#{component_controller}#toggleColumn"} }
         .text-xs
-          =label_for(column_id)
+          =column.label
 = render Spreadsheet::Search.new

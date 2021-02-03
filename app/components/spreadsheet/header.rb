@@ -9,13 +9,13 @@ module Spreadsheet
 
     with_content_areas :context_menu
 
-    def initialize(id:, columns:, locked: {}, **opts)
+    def initialize(id:, columns: [], locked: {}, **opts)
       super
-      @columns = columns.map(&:to_sym)
       @colspans = opts[:colspans] || {}
       @classnames = opts[:classnames] || {}
-      @locked = locked.map(&:to_sym)
       @labels = opts[:labels] || {}
+      @columns = setup_columns(columns)
+      @locked = locked.map(&:to_sym)
     end
 
     def component_classnames
@@ -57,6 +57,25 @@ module Spreadsheet
 
     def default_component_controller
       'spreadsheet--header'
+    end
+
+    def setup_columns(columns)
+      columns.map do |column|
+        if column.class.ancestors.include? ViewComponent::Base
+          column
+        else
+          default_column(column)
+        end
+      end
+    end
+
+    def default_column(column)
+      column_id = column.to_sym
+      Spreadsheet::HeaderColumn.new(
+        id: column_id,
+        classnames: classnames_for(column_id),
+        label: label_for(column_id)
+      )
     end
   end
 end

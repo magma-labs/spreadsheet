@@ -31,4 +31,15 @@ class HeaderTest < ViewComponent::TestCase
 
     assert_selector('div.spreadsheet--search')
   end
+
+  def test_render_with_component_columns
+    columns = %i[column0]
+    columns.push(Spreadsheet::HeaderColumn.new(id: :column1))
+    render_inline(::Spreadsheet::Header.new(
+                    id: 'header-test',
+                    columns: columns
+                  ))
+
+    assert_selector('div.spreadsheet--header')
+  end
 end
