@@ -1,4 +1,5 @@
 .spreadsheet--header{class: component_classnames, data: { controller: component_controller, action: "contextmenu->#{component_controller}#menu"}}
+  = content
   - columns.each do |column|
     = render column
 
