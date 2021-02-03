@@ -42,4 +42,14 @@ class HeaderTest < ViewComponent::TestCase
 
     assert_selector('div.spreadsheet--header')
   end
+
+  def test_render_with_hash_column
+    columns = ['column0', { id: 'other_column' }]
+    render_inline(::Spreadsheet::Header.new(
+                    id: 'header-test',
+                    columns: columns
+                  ))
+
+    assert_selector('div.spreadsheet--header')
+  end
 end

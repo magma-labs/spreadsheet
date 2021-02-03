@@ -70,11 +70,23 @@ module Spreadsheet
     end
 
     def default_column(column)
-      column_id = column.to_sym
-      Spreadsheet::HeaderColumn.new(
-        id: column_id,
-        classnames: classnames_for(column_id),
-        label: label_for(column_id)
+      Spreadsheet::HeaderColumn.new(column_hash(column))
+    end
+
+    def normalize_hash(column)
+      case column
+      when Hash
+        column
+      else
+        { id: column.to_sym }
+      end
+    end
+
+    def column_hash(column)
+      col_opts = normalize_hash(column)
+      col_opts.merge(
+        classnames: col_opts[:classnames] || classnames_for(col_opts[:id]),
+        label: col_opts[:label] || label_for(col_opts[:id])
       )
     end
   end
