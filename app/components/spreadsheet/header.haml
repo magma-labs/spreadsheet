@@ -7,13 +7,16 @@
     %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
       .text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger")
         = octicon "kebab-horizontal"
-      = context_menu
+      = actions_menu
 
   %sl-menu#context-menu.hidden.text-xs{data: {target: "#{component_controller}.contextMenu"}}
-    %sl-menu-label.text-left.text-xs Show/Hide Columns
-    - columns.each do |column|
-      - next if locked.include?(column.id)
-      %sl-menu-item{checked: true, data: {id: column.id, action: "click->#{component_controller}#toggleColumn"} }
-        .text-xs
-          =column.label
+    - if show_context_menu?
+      = context_menu
+    - else
+      %sl-menu-label.text-left.text-xs Show/Hide Columns
+      - columns.each do |column|
+        - next if locked.include?(column.id)
+        %sl-menu-item{checked: true, data: {id: column.id, action: "click->#{component_controller}#toggleColumn"} }
+          .text-xs
+            =column.label
 = render Spreadsheet::Search.new

@@ -7,7 +7,7 @@ module Spreadsheet
   class Header < Row
     attr_reader :columns, :locked
 
-    with_content_areas :context_menu
+    with_content_areas :actions_menu, :context_menu
 
     def initialize(id:, columns: [], locked: {}, **opts)
       super
@@ -49,7 +49,7 @@ module Spreadsheet
       @labels[id] || id.to_s.titleize
     end
 
-    def show_dropdown?
+    def show_context_menu?
       context_menu.present?
     end
 

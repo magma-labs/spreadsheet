@@ -17,7 +17,7 @@ class HeaderTest < ViewComponent::TestCase
                     id: 'header-test',
                     columns: %i[column0 column1 column2]
                   )) do |component|
-      component.with(:context_menu, 'Header Menu')
+      component.with(:actions_menu, 'Header Menu')
     end
 
     assert_selector('sl-dropdown', text: 'Header Menu')
