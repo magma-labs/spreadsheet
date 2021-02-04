@@ -25,6 +25,11 @@ task :test_app do
 end
 
 Rake::TestTask.new(:test) do |t|
+  if Dir['test/dummy'].empty?
+    Rake::Task[:test_app].invoke
+    Dir.chdir('../../')
+  end
+
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
   t.verbose = false
