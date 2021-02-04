@@ -89,17 +89,4 @@ export default class extends Controller {
       this.dragSumAlert.toast()
     }
   }
-
-  toggleColumn (event) {
-    const menu = event.target.closest('sl-menu-item')
-    const selector = `.spreadsheet--cell.${menu.dataset.id}`
-    const cells = this.element.querySelectorAll(selector)
-    if (menu.checked) { // hide
-      cells.forEach(c => c.classList.add('hidden'))
-      menu.checked = false
-    } else {
-      cells.forEach(c => c.classList.remove('hidden'))
-      menu.checked = true
-    }
-  }
 }

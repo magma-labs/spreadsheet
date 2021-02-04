@@ -20,4 +20,17 @@ export default class extends Controller {
   search () {
     window.dispatchEvent(new CustomEvent('toggle-search'))
   }
+
+  toggleColumn (event) {
+    const menu = event.target.closest('sl-menu-item')
+    const selector = `.spreadsheet--cell.${menu.dataset.id}`
+    const cells = document.querySelectorAll(selector)
+    if (menu.checked) { // hide
+      cells.forEach(c => c.classList.add('hidden'))
+      menu.checked = false
+    } else {
+      cells.forEach(c => c.classList.remove('hidden'))
+      menu.checked = true
+    }
+  }
 }
