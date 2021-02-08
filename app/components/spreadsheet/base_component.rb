@@ -14,5 +14,9 @@ module Spreadsheet
     def component_controller
       @opts[:controller] || default_component_controller
     end
+
+    def component_classnames
+      @opts[:classnames]
+    end
   end
 end
