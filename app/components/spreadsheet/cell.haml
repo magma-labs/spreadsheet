@@ -7,8 +7,9 @@
         = octicon "triangle-down"
     - if actions_menu
       %sl-dropdown.cell_actionmenu
-        .p-1.text-gray-500.cursor-pointer(slot="trigger")
+        .p-1.text-gray-500.cursor-pointer(slot="trigger"){class: actions_menu_label_classes}
           %sl-icon(name=actions_menu_icon)
+          = actions_menu_label
         %sl-menu.text-xs
           = actions_menu
 

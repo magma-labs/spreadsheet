@@ -6,6 +6,7 @@ module Spreadsheet
     attr_reader :id, :value, :colspan, :opts
 
     include Spreadsheet::Cell::Controller
+    include Spreadsheet::Cell::Menu
 
     with_content_areas :actions_menu
 
@@ -92,14 +93,6 @@ module Spreadsheet
 
     def render?
       row.display_cell?(id)
-    end
-
-    def actions_menu_options
-      opts[:actions_menu_options] || {}
-    end
-
-    def actions_menu_icon
-      actions_menu_options[:icon] || 'three-dots'
     end
 
     private
