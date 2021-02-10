@@ -7,13 +7,17 @@ export default class extends Controller {
 
   connect () {
     if (this.hasInputTarget && this.element.classList.contains('money')) {
-      Cleave(this.inputTarget, {
+      this.cleave = new Cleave(this.inputTarget, {
         numeral: true,
         numeralThousandsGroupStyle: 'thousand'
       })
     }
 
     // this.element.addEventListener("blur", this.blur.bind(this))
+  }
+
+  disconnect () {
+    if (this.cleave) this.cleave.destroy()
   }
 
   get tooltip () {
