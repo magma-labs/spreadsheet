@@ -12,6 +12,10 @@ class RowTest < ViewComponent::TestCase
   def test_selectable
     render_inline(::Spreadsheet::Row.new(id: 'row-test', selectable: true))
     assert_selector('.row-checkbox')
+  end
+
+  def test_selectable_menu
+    render_inline(::Spreadsheet::Row.new(id: 'row-test', selectable_menu: true))
     assert_selector('.row_actionmenu')
   end
 

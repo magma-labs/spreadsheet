@@ -34,6 +34,10 @@ module Spreadsheet
       opts[:selectable]
     end
 
+    def selectable_menu
+      opts[:selectable_menu]
+    end
+
     def draggable
       opts[:draggable]
     end
@@ -43,7 +47,7 @@ module Spreadsheet
     end
 
     def show_dropdown?
-      selectable || actions_menu.present?
+      selectable_menu || actions_menu.present?
     end
 
     def data

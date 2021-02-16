@@ -13,7 +13,7 @@
       .absolute.p-2.text-gray-500.inset-y-0.right-0.row_actionmenu.cursor-pointer(slot="trigger")
         = octicon "kebab-horizontal"
       %sl-menu.text-xs
-        - if selectable
+        - if selectable_menu
           %sl-menu-item
             .grid.grid-flow-col.grid-cols-auto{ data: { action: "click->#{component_controller}#toggleSelectionMode" }}
               .text-xs.text-right.col-span-8.mr-2 Select
