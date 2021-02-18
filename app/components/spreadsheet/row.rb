@@ -51,19 +51,21 @@ module Spreadsheet
     end
 
     def data
-      default_data = {
-        controller: component_controller,
-        action: "mousedown->#{component_controller}#highlight",
-        nesting_level: nesting_level
-      }
-      default_data.merge!(opts[:extra_data]) if opts[:extra_data]
-      default_data
+      opts[:extra_data] ? default_data.merge(opts[:extra_data]) : default_data
     end
 
     private
 
     def default_component_controller
       'spreadsheet--row'
+    end
+
+    def default_data
+      {
+        controller: component_controller,
+        action: "mousedown->#{component_controller}#highlight",
+        nesting_level: nesting_level
+      }
     end
   end
 end

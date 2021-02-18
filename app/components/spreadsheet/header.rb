@@ -89,5 +89,12 @@ module Spreadsheet
         label: col_opts[:label] || label_for(col_opts[:id])
       )
     end
+
+    def default_data
+      {
+        controller: component_controller,
+        action: "contextmenu->#{component_controller}#menu"
+      }
+    end
   end
 end
