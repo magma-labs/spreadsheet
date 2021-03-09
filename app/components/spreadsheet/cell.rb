@@ -52,7 +52,7 @@ module Spreadsheet
 
     def input_data
       {
-        target: "#{component_controller}.input",
+        "#{component_controller}": { target: "input"},
         action: "change->#{component_controller}#change blur->#{component_controller}#hideInput"
       }
     end

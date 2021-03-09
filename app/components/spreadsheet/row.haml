@@ -3,7 +3,7 @@
   = content
   - if selectable
     .absolute.p-2.row-checkbox.hidden
-      %sl-checkbox(name="grip-horizontal"){ data: { target: "#{component_controller}.checkbox", action: "click->#{component_controller}#selectRow"}}
+      %sl-checkbox(name="grip-horizontal"){ data: { "#{component_controller}": { target: "checkbox" }, action: "click->#{component_controller}#selectRow"}}
   - if draghandle
     .absolute.p-2.text-gray-500.draghandle.cursor-move
       = octicon "grabber"

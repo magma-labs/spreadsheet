@@ -1,5 +1,5 @@
 .spreadsheet--cell.border.border-dotted.border-gray-300.p-0.text-sm.p-1{class: component_classnames, tabindex: 0, data: data, draggable: dragsum }
-  .spreadsheet--cell-display.p-1.w-full.mt-auto{class: numeric_class, data: { target: "#{component_controller}.display", action: "dblclick->#{component_controller}#showInput"}}
+  .spreadsheet--cell-display.p-1.w-full.mt-auto{class: numeric_class, data: { "#{component_controller}": { target: "display" }, action: "dblclick->#{component_controller}#showInput"}}
     .inline-block.searchable
       = content
     - if expander

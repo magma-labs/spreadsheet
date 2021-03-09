@@ -1,16 +1,16 @@
 .spreadsheet--search.grid.grid-flow-col.grid-cols-auto.gap-0.auto-cols-fr.pl-1.pr-8.hidden{ data: { controller: component_controller, action: "toggle-search@window->#{component_controller}#toggleSearch" }}
   .input.col-span-9.p-2
-    %sl-input.w-full(placeholder="Search" size="small" clearable pill autofocus){ data: { target: "#{component_controller}.input"}}
+    %sl-input.w-full(placeholder="Search" size="small" clearable pill autofocus){ data: { "#{component_controller}": { target: "input" }}}
       %sl-icon(name="search" slot="prefix")
-      %sl-dropdown(slot="suffix" placement="bottom-end" hoist){ data: { target: "#{component_controller}.dropdown"}}
-        %sl-button(slot="trigger" caret type="text" size="small"){ data: { target: "#{component_controller}.trigger"}} Highlight
+      %sl-dropdown(slot="suffix" placement="bottom-end" hoist){ data: { "#{component_controller}": { target: "dropdown"}}}
+        %sl-button(slot="trigger" caret type="text" size="small"){ data: { "#{component_controller}": { target: "trigger"}}} Highlight
         %sl-menu
-          %sl-menu-item{ data: { target: "#{component_controller}.higlight"}, checked: true} Highlight
-          %sl-menu-item{ data: { target: "#{component_controller}.filter"}} Filter
+          %sl-menu-item{ data: { "#{component_controller}": { target: "higlight"}}, checked: true} Highlight
+          %sl-menu-item{ data: { "#{component_controller}": { target: "filter"}}} Filter
 
-  .search-results.text-center.p-3{ data: { target: "#{component_controller}.results"}}
+  .search-results.text-center.p-3{ data: { "#{component_controller}": { target: "results"}}}
     0 found
   .search-actions.text-right.p-2.flex
-    %sl-icon-button(name="caret-up-fill" label="Previous"){ data: { target: "#{component_controller}.previous" }, class: "w-1/3"}
-    %sl-icon-button(name="caret-down-fill" label="Next"){ data: { target: "#{component_controller}.next"}, class: "w-1/3"}
-    %sl-icon-button(name="x-circle-fill" label="Close"){ data: { target: "#{component_controller}.cancel"}, class: "w-1/3"}
+    %sl-icon-button(name="caret-up-fill" label="Previous"){ data: { "#{component_controller}": { target: "previous" }}, class: "w-1/3"}
+    %sl-icon-button(name="caret-down-fill" label="Next"){ data: { "#{component_controller}": { target: "next" }}, class: "w-1/3"}
+    %sl-icon-button(name="x-circle-fill" label="Close"){ data: { "#{component_controller}": { target: "cancel" }}, class: "w-1/3"}

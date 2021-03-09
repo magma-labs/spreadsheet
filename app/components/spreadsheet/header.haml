@@ -9,7 +9,7 @@
         = octicon "kebab-horizontal"
       = actions_menu
 
-  %sl-menu#context-menu.hidden.text-xs{data: {target: "#{component_controller}.contextMenu"}}
+  %sl-menu#context-menu.hidden.text-xs{data: {"#{component_controller}": { target: "contextMenu" }}}
     - if show_context_menu?
       = context_menu
     - else
