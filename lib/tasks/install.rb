@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 file_path = Spreadsheet.config.stimulus_path
+
+unless Pathname.new(file_path).exist?
+  run 'rails webpacker:install:stimulus'
+end
+
 lines = File.open(file_path, 'r', &:readlines)
 last_import = lines.select { |line| line =~ /\A(require|import)/ }.last
 
@@ -13,7 +18,7 @@ append_to_file file_path.to_s do
 end
 
 say 'Installing Spreadsheet js package'
-if RAILS_ENV == 'test'
+if Rails.env.test?
   inside File.expand_path('../../.') do
     run 'yarn link'
   end
