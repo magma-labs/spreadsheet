@@ -28,10 +28,18 @@ module Spreadsheet
       @row_parent.level + 1
     end
 
+    def sortable_controller
+      opts[:sortable_controller] || default_sortable_controller
+    end
+
     private
 
     def default_component_controller
       'spreadsheet--row-group'
+    end
+
+    def default_sortable_controller
+      'spreadsheet--sortable'
     end
   end
 end

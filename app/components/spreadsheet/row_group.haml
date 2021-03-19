@@ -2,5 +2,5 @@
   .spreadsheet--row-group.divide-y.divide-gray-500{data: { controller: component_controller, action: "mousedown->#{component_controller}#highlight"} }
     .row_group-header.relative.pb-px.bg-gray-300.font-medium
       = header
-    .row_group-body.collapse-container.bg-white.font-light{ data: { "#{component_controller}": { target: "collapseContainer"}, controller: "spreadsheet--sortable"}}
+    .row_group-body.collapse-container.bg-white.font-light{ data: { "#{component_controller}": { target: "collapseContainer"}, controller: sortable_controller}}
       = body
