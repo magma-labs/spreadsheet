@@ -1,4 +1,4 @@
-.spreadsheet--search.grid.grid-flow-col.grid-cols-auto.gap-0.auto-cols-fr.pl-1.pr-8.hidden{ data: { controller: component_controller, action: "toggle-search@window->#{component_controller}#toggleSearch" }}
+.spreadsheet--search.grid.grid-flow-col.grid-cols-auto.gap-0.auto-cols-fr.pl-1.pr-8.hidden{ data: data }
   .input.col-span-9.p-2
     %sl-input.w-full(placeholder="Search" size="small" clearable pill autofocus){ data: { "#{component_controller}": { target: "input" }}}
       %sl-icon(name="search" slot="prefix")

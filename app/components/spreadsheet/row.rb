@@ -50,10 +50,6 @@ module Spreadsheet
       selectable_menu || actions_menu.present?
     end
 
-    def data
-      opts[:extra_data] ? default_data.merge(opts[:extra_data]) : default_data
-    end
-
     private
 
     def default_component_controller

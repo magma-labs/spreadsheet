@@ -37,19 +37,6 @@ module Spreadsheet
       super || value
     end
 
-    def data
-      default_data = {
-        type: id,
-        value: value,
-        nesting_level: nesting_level,
-        controller: component_controller,
-        action: data_actions,
-        error: error
-      }
-      default_data.merge!(opts[:extra_data]) if opts[:extra_data]
-      default_data
-    end
-
     def input_data
       {
         "#{component_controller}": { target: "input"},
@@ -116,6 +103,17 @@ module Spreadsheet
         'mousedown->spreadsheet--row#highlight',
         "focus->#{component_controller}#focus"
       ].join(' ')
+    end
+
+    def default_data
+      {
+        type: id,
+        value: value,
+        nesting_level: nesting_level,
+        controller: component_controller,
+        action: data_actions,
+        error: error
+      }
     end
 
     def concat_classnames

@@ -18,5 +18,9 @@ module Spreadsheet
     def component_classnames
       @opts[:classnames]
     end
+
+    def data
+      @opts[:extra_data] ? default_data.merge(@opts[:extra_data]) : default_data
+    end
   end
 end

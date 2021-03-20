@@ -8,5 +8,12 @@ module Spreadsheet
     def default_component_controller
       'spreadsheet--search'
     end
+
+    def default_data
+      {
+        controller: component_controller,
+        action: "toggle-search@window->#{component_controller}#toggleSearch"
+      }
+    end
   end
 end

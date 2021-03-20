@@ -41,5 +41,12 @@ module Spreadsheet
     def default_sortable_controller
       'spreadsheet--sortable'
     end
+
+    def default_data
+      {
+        controller: component_controller,
+        action: "mousedown->#{component_controller}#highlight"
+      }
+    end
   end
 end

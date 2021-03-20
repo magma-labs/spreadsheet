@@ -1,5 +1,5 @@
 .spreadsheet--row-group-container.pb-px.bg-white{class: classnames, draggable: draggable }
-  .spreadsheet--row-group.divide-y.divide-gray-500{data: { controller: component_controller, action: "mousedown->#{component_controller}#highlight"} }
+  .spreadsheet--row-group.divide-y.divide-gray-500{ data: data }
     .row_group-header.relative.pb-px.bg-gray-300.font-medium
       = header
     .row_group-body.collapse-container.bg-white.font-light{ data: { "#{component_controller}": { target: "collapseContainer"}, controller: sortable_controller}}
