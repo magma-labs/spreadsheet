@@ -32,6 +32,10 @@ module Spreadsheet
       opts[:sortable_controller] || default_sortable_controller
     end
 
+    def sortable_data
+      opts[:sortable_extra_data] ? default_sortable_data.merge(opts[:sortable_extra_data]) : default_sortable_data
+    end
+
     private
 
     def default_component_controller
@@ -46,6 +50,13 @@ module Spreadsheet
       {
         controller: component_controller,
         action: "mousedown->#{component_controller}#highlight"
+      }
+    end
+
+    def default_sortable_data
+      {
+        "#{component_controller}": { target: "collapseContainer" },
+        controller: sortable_controller
       }
     end
   end
