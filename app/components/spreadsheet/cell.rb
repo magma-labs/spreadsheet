@@ -70,6 +70,12 @@ module Spreadsheet
       CssClassString::Helper.new('text-right', negative: numeric_value.negative?).to_s
     end
 
+    def content_classnames
+      CssClassString::Helper.new(
+        opts[:content_classnames]
+      )
+    end
+
     def readonly
       opts[:readonly]
     end
