@@ -117,18 +117,15 @@
   }
 }
 
-
-
-
 sl-menu {
   sl-menu-item {
-    @apply grid grid-flow-col grid-cols-auto
+    @apply grid grid-flow-col auto-cols-auto;
 
     div:first-child {
-      @apply text-right col-span-8 pr-1
+      @apply text-right col-span-8 pr-1;
     }
     sl-icon {
-      @apply col-span-2
+      @apply col-span-2;
     }
   }
 }
