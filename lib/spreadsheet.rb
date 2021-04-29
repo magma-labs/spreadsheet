@@ -7,7 +7,6 @@ require 'spreadsheet/configuration'
 require 'request_store'
 require 'css-class-string'
 require 'haml'
-require 'octicons_helper'
 
 # A collection of view_components for an spreadsheet like app
 module Spreadsheet

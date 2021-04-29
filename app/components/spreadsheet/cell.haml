@@ -4,7 +4,7 @@
       = content
     - if expander
       .collapse-control.inline-block.transform.transition-transform.duration-200.ease-in.cursor-pointer{ data: { action: "click->#{parent_component_controller}#collapse" }}
-        = octicon "triangle-down"
+        %sl-icon{ name: "caret-down-fill" }
     - if actions_menu
       %sl-dropdown.cell_actionmenu
         .p-1.text-gray-500.cursor-pointer(slot="trigger"){class: actions_menu_label_classes}

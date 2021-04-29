@@ -6,18 +6,18 @@
       %sl-checkbox(name="grip-horizontal"){ data: { "#{component_controller}": { target: "checkbox" }, action: "click->#{component_controller}#selectRow"}}
   - if draghandle
     .absolute.p-2.text-gray-500.draghandle.cursor-move
-      = octicon "grabber"
+      %sl-icon{ name: "grip-vertical" }
 
   - if show_dropdown?
     %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
       .absolute.p-2.text-gray-500.inset-y-0.right-0.row_actionmenu.cursor-pointer(slot="trigger")
-        = octicon "kebab-horizontal"
+        %sl-icon{ name: "three-dots" }
       %sl-menu.text-xs
         - if selectable_menu
           %sl-menu-item
             .grid.grid-flow-col.grid-cols-auto{ data: { action: "click->#{component_controller}#toggleSelectionMode" }}
               .text-xs.text-right.col-span-8.mr-2 Select
               .text-xs.col-span-1.p-1
-                = octicon "pencil"
+                %sl-icon{ name: "pencil" }
 
         = actions_menu

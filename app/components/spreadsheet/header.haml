@@ -6,7 +6,7 @@
   - if show_dropdown?
     %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
       .text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger")
-        = octicon "kebab-horizontal"
+        %sl-icon{ name: "three-dots" }
       = actions_menu
 
   %sl-menu#context-menu.hidden.text-xs{data: {"#{component_controller}": { target: "contextMenu" }}}
