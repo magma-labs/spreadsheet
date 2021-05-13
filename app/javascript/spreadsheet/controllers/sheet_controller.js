@@ -11,7 +11,10 @@ export default class extends Controller {
     document.addEventListener('spreadsheet:cell-focus', this.clearSum.bind(this))
 
     window.addEventListener('cable-ready:after-morph', function (event) {
-      const tags = ['sl-dropdown', 'sl-menu', 'sl-menu-item', 'sl-menu-label', 'sl-icon', 'sl-icon-button', 'sl-input', 'sl-checkbox', 'sl-switch', 'sl-button']
+      const tags = [
+        'sl-dropdown', 'sl-menu', 'sl-menu-item', 'sl-menu-label', 'sl-icon', 'sl-icon-button',
+        'sl-input', 'sl-checkbox', 'sl-switch', 'sl-button', 'sl-drawer'
+      ]
       tags.forEach(tag => {
         document.querySelectorAll(tag).forEach(el => {
           el.classList.add('hydrated')
