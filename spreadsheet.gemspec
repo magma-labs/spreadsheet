@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'https://github.com/magma-labs/spreadsheet'
   spec.summary     = 'A Spreadsheet view_component for your Rails app'
   spec.license     = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('~> 2.7')
+  spec.required_ruby_version = Gem::Requirement.new('~> 3.2')
 
   spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
