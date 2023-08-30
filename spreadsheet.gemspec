@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails'
   spec.add_dependency 'request_store'
   spec.add_dependency 'stimulus_reflex'
-  spec.add_dependency 'view_component'
+  spec.add_dependency 'view_component', '~> 2.8'
 
   spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'pry'
