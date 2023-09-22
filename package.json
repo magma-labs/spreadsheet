@@ -11,7 +11,7 @@
     "mark.js": "^8.11.1",
     "sortablejs": "^1.12.0",
     "stimulus": "^2.0.0",
-    "stimulus_reflex": "^3.4.0.pre8",
+    "stimulus_reflex": "^3.4.0",
     "tailwindcss": "^1.9.5"
   },
   "devDependencies": {
