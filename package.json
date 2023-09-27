@@ -1,6 +1,6 @@
 {
   "name": "@magmalabs/spreadsheet",
-  "version": "0.3.6",
+  "version": "1.0.0-alpha",
   "main": "dist/spreadsheet.js",
   "dependencies": {
     "@primer/octicons": "^11.2.0",
