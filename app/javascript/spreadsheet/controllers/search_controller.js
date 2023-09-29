@@ -89,6 +89,6 @@ export default class extends Controller {
 
   toggleSearch () {
     this.element.classList.toggle('hidden')
-    this.inputTarget.setFocus()
+    this.inputTarget.focus()
   }
 }
