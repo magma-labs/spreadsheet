@@ -5,7 +5,8 @@ module Spreadsheet
   class RowGroup < Spreadsheet::BaseComponent
     attr_reader :id, :opts
 
-    with_content_areas :header, :body
+    renders_one :row_group_header
+    renders_one :row_group_body
 
     def initialize(id:, **opts)
       @id = id

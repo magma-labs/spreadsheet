@@ -8,7 +8,7 @@ module Spreadsheet
     include Spreadsheet::Cell::Controller
     include Spreadsheet::Cell::Menu
 
-    with_content_areas :actions_menu
+    renders_one :cell_actions_menu
 
     def initialize(id:, value: '&nbsp;'.html_safe, colspan: 1, **opts)
       @id = id

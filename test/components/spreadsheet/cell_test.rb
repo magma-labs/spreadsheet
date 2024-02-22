@@ -17,7 +17,7 @@ class CellTest < ViewComponent::TestCase
 
   def test_renders_actions_menu
     render_inline(::Spreadsheet::Cell.new(id: 'cell-test')) do |component|
-      component.with(:actions_menu, 'Menu')
+      component.with_cell_actions_menu { 'Menu' }
     end
     assert_selector('.cell_actionmenu')
   end

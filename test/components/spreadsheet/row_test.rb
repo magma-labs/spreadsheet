@@ -26,7 +26,7 @@ class RowTest < ViewComponent::TestCase
 
   def test_actions_menu
     render_inline(::Spreadsheet::Row.new(id: 'row-test')) do |component|
-      component.with(:actions_menu, 'Row Menu')
+      component.with_row_actions_menu { 'Row Menu' }
     end
     assert_selector('.row_actionmenu')
     assert_selector('sl-menu', text: 'Row Menu')
