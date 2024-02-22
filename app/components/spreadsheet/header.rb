@@ -7,7 +7,8 @@ module Spreadsheet
   class Header < Row
     attr_reader :columns, :locked
 
-    with_content_areas :actions_menu, :context_menu
+    renders_one :header_actions_menu
+    renders_one :header_context_menu
 
     def initialize(id:, columns: [], locked: {}, **opts)
       super
@@ -50,7 +51,7 @@ module Spreadsheet
     end
 
     def show_context_menu?
-      context_menu.present?
+      header_context_menu.present?
     end
 
     private

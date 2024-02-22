@@ -7,11 +7,11 @@
     %sl-dropdown.absolute.p-2.inset-y-0.right-0.min-h-full
       .text-gray-100.text-gray-100.cursor-pointer.my-auto(slot="trigger")
         %sl-icon{ name: "three-dots" }
-      = actions_menu
+      = header_actions_menu
 
   %sl-menu#context-menu.hidden.text-xs{data: {"#{component_controller}": { target: "contextMenu" }}}
     - if show_context_menu?
-      = context_menu
+      = header_context_menu
     - else
       %sl-menu-label.text-left.text-xs Show/Hide Columns
       - columns.each do |column|

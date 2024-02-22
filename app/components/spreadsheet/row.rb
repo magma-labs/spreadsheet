@@ -5,7 +5,7 @@ module Spreadsheet
   class Row < Spreadsheet::BaseComponent
     attr_reader :id, :parent, :opts
 
-    with_content_areas :actions_menu
+    renders_one :row_actions_menu
 
     def initialize(id:, visible_cells: [], **opts)
       @id = id
@@ -47,7 +47,7 @@ module Spreadsheet
     end
 
     def show_dropdown?
-      selectable_menu || actions_menu.present?
+      selectable_menu || row_actions_menu.present?
     end
 
     private

@@ -5,13 +5,13 @@
     - if expander
       .collapse-control.inline-block.transform.transition-transform.duration-200.ease-in.cursor-pointer{ data: { action: "click->#{parent_component_controller}#collapse" }}
         %sl-icon{ name: "caret-down-fill" }
-    - if actions_menu
+    - if cell_actions_menu
       %sl-dropdown.cell_actionmenu
         .p-1.text-gray-500.cursor-pointer(slot="trigger"){class: actions_menu_label_classes}
           %sl-icon(name=actions_menu_icon)
           = actions_menu_label
         %sl-menu.text-xs
-          = actions_menu
+          = cell_actions_menu
 
   - unless readonly
     %input.bg-white.text-black.w-full.p-1.hidden{id: random_id, type: "text", value: value, class: numeric_class, disabled: disabled, readonly: readonly, data: input_data }
