@@ -71,7 +71,7 @@ module Spreadsheet
     end
 
     def default_column(column)
-      Spreadsheet::HeaderColumn.new(column_hash(column))
+      Spreadsheet::HeaderColumn.new(**column_hash(column))
     end
 
     def normalize_hash(column)
