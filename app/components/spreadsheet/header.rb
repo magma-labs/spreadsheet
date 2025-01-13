@@ -54,6 +54,10 @@ module Spreadsheet
       header_context_menu.present?
     end
 
+    def show_dropdown?
+      selectable_menu || header_actions_menu.present?
+    end
+
     private
 
     def default_component_controller
