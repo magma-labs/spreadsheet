@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   static targets = ['checkbox']
@@ -8,7 +8,9 @@ export default class extends Controller {
   }
 
   isSelectionMode () {
-    return this.data.get('mode')
+    // Stimulus 3 removed the `this.data` API; read the same
+    // `data-<identifier>-mode` attribute directly to preserve behavior.
+    return this.element.getAttribute(`data-${this.identifier}-mode`)
   }
 
   highlight () {

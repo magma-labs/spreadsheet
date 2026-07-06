@@ -1,5 +1,5 @@
 /* global Image */
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 
 import './sheet.scss'
 
