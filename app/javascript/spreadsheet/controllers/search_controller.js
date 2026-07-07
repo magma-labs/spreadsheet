@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import Mark from 'mark.js'
 import hotkeys from 'hotkeys-js'
 

@@ -1,17 +1,17 @@
 {
   "name": "@magmalabs/spreadsheet",
-  "version": "1.0.1-alpha",
+  "version": "2.0.0",
   "main": "dist/spreadsheet.js",
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@primer/octicons": "^11.2.0",
     "@rails/actioncable": "^6.0.0",
-    "cable_ready": "^4.4.0-pre3",
+    "cable_ready": "^5.0.6",
     "cleave.js": "^1.6.0",
     "hotkeys-js": "^3.8.1",
     "mark.js": "^8.11.1",
     "sortablejs": "^1.12.0",
-    "stimulus": "^2.0.0",
-    "stimulus_reflex": "^3.4.0",
+    "stimulus_reflex": "^3.5.5",
     "tailwindcss": "^1.9.5"
   },
   "devDependencies": {
